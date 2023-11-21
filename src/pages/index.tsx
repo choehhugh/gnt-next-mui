@@ -25,6 +25,7 @@ export default function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const M_style = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -38,11 +39,56 @@ export default function Home() {
     // boxShadow: 24,
     px: 2,
   };
-  // const card_style = {
-  //   position: "absolute" as "absolute",
-  //   overflowY: "auto",
-  //   maxHeight: "852px",
-  // };
+
+  const materialData = [
+    { id: "C", value: "0.180" },
+    { id: "Si", value: "0.28" },
+    { id: "Mn", value: "0.54" },
+    { id: "P", value: "0.006" },
+    { id: "S", value: "0.0011" },
+    { id: "Cr", value: "1.66" },
+    { id: "Mo", value: "0.30" },
+    { id: "Ni", value: "1.46" },
+    { id: "Cu", value: "0.171" },
+    { id: "Nb", value: "0.01" },
+    { id: "V", value: "0.004" },
+    { id: "Ti", value: "0.001" },
+    { id: "Al", value: "0.027" },
+    { id: "N", value: "0.0106" },
+    { id: "H(ppm)", value: "1.60" },
+    { id: "O", value: "0.0009" },
+    { id: "Sn", value: "0.005" },
+    { id: "Sb", value: "0.001" },
+    { id: "Ca", value: "0.0007" },
+    { id: "Al/N", value: "2.547" },
+  ];
+
+  const testData = [
+    {
+      id: "Soll/Req.",
+      lageLoc: "T",
+      temp: "RT",
+      rp: ">=870",
+      rm: ">=1080 <=1500",
+      a5: ">=10",
+      z: ">=27",
+      value: ">=30",
+      charpy: "RT",
+      hb: "<=217",
+    },
+    {
+      id: "771F1",
+      lageLoc: "T",
+      temp: "RT",
+      rp: "968",
+      rm: "1262",
+      a5: "10.9",
+      z: "49",
+      value: "59 71",
+      charpy: "63 RT",
+      hb: "197",
+    },
+  ];
   return (
     <main className={`${styles.main} ${inter.className}`}>
       <Button variant="outlined" onClick={handleOpen}>
@@ -59,7 +105,7 @@ export default function Home() {
           <Stack
             mb={2}
             sx={{
-              height: "90px",
+              height: "9vh",
               // background: "#fff",
               display: "d-flex",
               alignItems: "center",
@@ -116,7 +162,7 @@ export default function Home() {
                   sx={{
                     display: "d-flex",
                     alignItems: "center",
-                    justifyContent: "space-start",
+                    justifyContent: "space-center",
                   }}
                 >
                   <Typography
@@ -339,8 +385,8 @@ export default function Home() {
                         <Typography
                           style={{ fontSize: "9px", color: "#3E4E58" }}
                         >
-                          Stempel des Werkssachverständigen Inspector&apos;s stamp
-                          Poincon de l&apos;inspecteur
+                          Stempel des Werkssachverständigen Inspector&apos;s
+                          stamp Poincon de l&apos;inspecteur
                         </Typography>
                       </Grid>
                     </Stack>
@@ -601,7 +647,7 @@ export default function Home() {
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={2} m={"2px"}>
+                  <Grid container spacing={1} my={"2px"}>
                     <Grid xs={4}>
                       <Typography
                         sx={{
@@ -613,9 +659,7 @@ export default function Home() {
                         Besichtigung und Maßnachprüfung Inspection and
                         dimensional control Inspection et contrôle de dimension
                       </Typography>
-
                       <Typography
-                        mt={1}
                         sx={{
                           fontSize: "12px",
                           color: "#3E4E58",
@@ -637,7 +681,6 @@ export default function Home() {
                         refining Mode d`élaboration/traitement ultérieur
                       </Typography>
                       <Typography
-                        mt={1}
                         sx={{
                           fontSize: "12px",
                           color: "#3E4E58",
@@ -647,7 +690,7 @@ export default function Home() {
                       </Typography>
                     </Grid>
                     <Divider orientation="vertical" flexItem />
-                    <Grid xs={3}>
+                    <Grid xs={3.8}>
                       <Typography
                         sx={{
                           fontSize: "9px",
@@ -671,7 +714,7 @@ export default function Home() {
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={2} m={"2px"}>
+                  <Grid container spacing={1} m={"2px"}>
                     <Grid xs={1}>
                       <Typography
                         sx={{
@@ -684,7 +727,7 @@ export default function Home() {
                       </Typography>
                     </Grid>
                     <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
+                    <Grid xs={2}>
                       <Typography
                         sx={{
                           fontSize: "9px",
@@ -696,7 +739,7 @@ export default function Home() {
                       </Typography>
                     </Grid>
                     <Divider orientation="vertical" flexItem />
-                    <Grid xs={6}>
+                    <Grid xs={5}>
                       <Typography
                         sx={{
                           fontSize: "9px",
@@ -733,7 +776,7 @@ export default function Home() {
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={2} m={"2px"}>
+                  <Grid container spacing={1} m={"2px"}>
                     <Grid xs={1}>
                       <Typography
                         sx={{
@@ -790,8 +833,9 @@ export default function Home() {
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={2} m={"2px"}>
-                    <Grid xs={1}>
+                  {/* Schmelze Heat % */}
+                  <Grid container spacing={1.2} m={"2px"}>
+                    <Grid xs={1.2}>
                       <Typography
                         sx={{
                           fontSize: "9px",
@@ -800,22 +844,6 @@ export default function Home() {
                       >
                         Schmelze Heat %
                       </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={10}>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        C Si Mn P S Cr Mo Ni Cu Nb V Ti
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Divider />
-                  <Grid container spacing={2} m={"2px"}>
-                    <Grid xs={2}>
                       <Typography
                         sx={{
                           fontSize: "14px",
@@ -826,22 +854,42 @@ export default function Home() {
                         738883
                       </Typography>
                     </Grid>
-
-                    <Grid xs={9}>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        0,180 0,28 0,54 0,006 0,0011 1,66 0,30 1,46 0,171 0,001
-                        0,004 0,001 Al N H(ppm) O Sn Sb Ca Al/N 0,027 0,0106
-                        1,60 0,0009 0,005 0,001 0,0007 2,547
-                      </Typography>
+                    <Divider orientation="vertical" flexItem />
+                    <Grid xs={10.7}>
+                      <Grid container spacing={1} mx={1}>
+                        {/* schmelze heat table */}
+                        {materialData.map((item) => (
+                          <Stack key={item.id}>
+                            <Grid xs={1}>
+                              <Typography
+                                sx={{
+                                  fontSize: "9px",
+                                  color: "#3E4E58",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {item.id}
+                              </Typography>
+                            </Grid>
+                            <Divider />
+                            <Grid xs={1}>
+                              <Typography
+                                sx={{
+                                  fontSize: "10px",
+                                  color: "#3E4E58",
+                                }}
+                              >
+                                {item.value}
+                              </Typography>
+                            </Grid>
+                            <Divider />
+                          </Stack>
+                        ))}
+                      </Grid>
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={1} m={"2px"}>
+                  <Grid container mt={"2px"} mx={1}>
                     <Grid xs={3}>
                       <Typography
                         sx={{
@@ -864,7 +912,7 @@ export default function Home() {
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Grid container spacing={1} m={"2px"}>
+                  <Grid container mb={"2px"} mx={1}>
                     <Grid xs={3}>
                       <Typography
                         sx={{
@@ -1012,130 +1060,135 @@ export default function Home() {
                     </Grid>
                   </Grid>
                   <Divider />
-                  <Grid container spacing={1} m={"2px"}>
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Probe-Nr. Test-No.
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={0.5}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Lage Loc.
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={0.5}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Temp. °C
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Rp0,2 N/mm²
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      ></Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Rm N/mm²
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        A5 %
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1}>
-                      <Typography
-                        sx={{
-                          fontSize: "10px",
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Z %
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1.5}>
-                      <Typography
-                        sx={{
-                          fontSize: "9px",
-                          fontWeight: 600,
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Kerbschlagarbeit Impact value J
-                      </Typography>
-                    </Grid>
+                  {testData.map((item) => (
+                    <>
+                      <Grid container spacing={1} m={"2px"} key={item.id}>
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.id}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={0.5}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.lageLoc}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={0.5}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.temp}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.rp}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          ></Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.rm}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.a5}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1}>
+                          <Typography
+                            sx={{
+                              fontSize: "10px",
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.z}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1.5}>
+                          <Typography
+                            sx={{
+                              fontSize: "9px",
+                              fontWeight: 600,
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.value}
+                          </Typography>
+                        </Grid>
 
-                    <Grid xs={1.5}>
-                      <Typography
-                        sx={{
-                          fontSize: "9px",
-                          fontWeight: 600,
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Probenform Shape of test piece Charpy-V
-                      </Typography>
-                    </Grid>
-                    <Divider orientation="vertical" flexItem />
-                    <Grid xs={1.5}>
-                      <Typography
-                        sx={{
-                          fontSize: "9px",
-                          fontWeight: 600,
-                          color: "#3E4E58",
-                        }}
-                      >
-                        Härte Hardness HB
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                  <Divider />
+                        <Grid xs={1.5}>
+                          <Typography
+                            sx={{
+                              fontSize: "9px",
+                              fontWeight: 600,
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.charpy}
+                          </Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid xs={1.5}>
+                          <Typography
+                            sx={{
+                              fontSize: "9px",
+                              fontWeight: 600,
+                              color: "#3E4E58",
+                            }}
+                          >
+                            {item.hb}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                      <Divider />
+                    </>
+                  ))}
+
                   <Grid container spacing={2} m={"2px"}>
                     <Grid xs={4}>
                       <Typography
@@ -1165,12 +1218,12 @@ export default function Home() {
                           fontSize: "9px",
                           fontWeight: 600,
                           color: "#3E4E58",
+                          width: "90px",
                         }}
                       >
                         Siegen,den Place and date Lieu et date
                       </Typography>
                       <Typography
-                        mt={1}
                         sx={{
                           fontSize: "12px",
                           color: "#3E4E58",
@@ -1192,10 +1245,9 @@ export default function Home() {
                         de réception
                       </Typography>
                       <Typography
-                        mt={1}
                         sx={{
-                          fontSize: "18px",
-                          fontWeight: 600,
+                          fontSize: "12px",
+                          fontWeight: 800,
                           color: "#3E4E58",
                         }}
                       >
