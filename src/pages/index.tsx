@@ -339,8 +339,8 @@ export default function Home() {
                         <Typography
                           style={{ fontSize: "9px", color: "#3E4E58" }}
                         >
-                          Stempel des Werkssachverständigen Inspector's stamp
-                          Poincon de l'inspecteur
+                          Stempel des Werkssachverständigen Inspector&apos;s stamp
+                          Poincon de l&apos;inspecteur
                         </Typography>
                       </Grid>
                     </Stack>
@@ -574,13 +574,13 @@ export default function Home() {
                         Third ed. 2016-08-15 1.6587 18CrNiMo7-6
                         ,Zusatzvereinbarung TL 101 Rev. 20 08/20 1.6587
                         18CrNiMo7-6 ,DIN EN ISO 683 -3 Juni 2022 Die
-                        Werkstoffqualität "MQ" nach ISO 6336-5 wird bestätigt.
+                        Werkstoffqualität {"MQ"} nach ISO 6336-5 wird bestätigt.
                         Diese Bestätigung gilt nur für die Eigenschaften, die
                         vom Stahlhersteller beeinflußt werden können. Für
                         Eigenschaften, die von der konstruktiven Gestaltung, der
                         Endwärmebehandlung und der Einsatzbedingungen abhängig
                         sind, kann der Stahlhersteller keinerlei Garantie und
-                        Gewährleistung übernehmen. The material quality "MQ"
+                        Gewährleistung übernehmen. The material quality {"MQ"}
                         acc. ISO 6336-5 will be confirmed. This confirmation is
                         only valid for the properties, which can be affected by
                         the steel producer. The steel producer cannot provide
